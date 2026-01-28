@@ -2,45 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Study Planner</title>
-<link rel="stylesheet" href="css/styles.css">
- </head>
-<body> 
-    <header>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
     <nav>
       <h1>Study Planner</h1>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
       </ul>
     </nav>
   </header>
-   <main>
-    <section>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- Add Task Section -->
+    <section id="add-task">
       <h2>Add Study Task</h2>
 
       <form id="task-form">
-        <label for="subject">Subject</label>
-        <input type="text" id="subject" required>
+        <div>
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" required>
+        </div>
 
-        <label for="date">Date</label>
-        <input type="date" id="date" required>
-         <label for="time">Time</label>
-        <input type="time" id="time" required>
+        <div>
+          <label for="date">Date</label>
+          <input type="date" id="date" required>
+        </div>
+
+        <div>
+          <label for="time">Time</label>
+          <input type="time" id="time" required>
+        </div>
 
         <button type="submit">Add Task</button>
       </form>
     </section>
 
-    <section>
-      <h2>Your Tasks</h2>
-      <ul id="task-list"></ul>
+    <!-- Task List Section -->
+    <section id="task-list-section">
+      <h2>Your Study Tasks</h2>
+      <ul id="task-list">
+        <!-- Tasks will appear here -->
+      </ul>
     </section>
+
   </main>
-<footer>
+
+  <!-- Footer -->
+  <footer>
     <p>© 2026 Study Planner</p>
   </footer>
-<script src="js/script.js"></script>
-  </body>
+
+  <script src="js/script.js"></script>
+</body>
 </html>
