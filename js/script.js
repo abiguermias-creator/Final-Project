@@ -4,8 +4,14 @@ const dateInput = document.getElementById("date");
 const timeInput = document.getElementById("time");
 const taskList = document.getElementById("task-list");
 
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+tasks.forEach(task => {
+  addTaskToList(task.subject, task.date, task.time);
+});
+
 taskForm.addEventListener("submit", function (e) {
-  e.preventDefault(); 
+  e.preventDefault();
 
   const subject = subjectInput.value;
   const date = dateInput.value;
@@ -15,6 +21,10 @@ taskForm.addEventListener("submit", function (e) {
     alert("Please fill in all fields");
     return;
   }
+
+  const task = { subject, date, time };
+  tasks.push(task);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 
   addTaskToList(subject, date, time);
 
@@ -32,9 +42,15 @@ function addTaskToList(subject, date, time) {
   deleteBtn.style.marginLeft = "10px";
 
   deleteBtn.addEventListener("click", function () {
-    li.remove();
+    taskList.removeChild(li);
+
+    tasks = tasks.filter(
+      task => !(task.subject === subject && task.date === date && task.time === time)
+    );
+    localStorage.setItem("tasks", JSON.stringify(tasks));
   });
 
   li.appendChild(deleteBtn);
   taskList.appendChild(li);
 }
+
