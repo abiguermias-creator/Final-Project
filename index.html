@@ -12,45 +12,26 @@
     <nav>
       <h1>Study Planner</h1>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
+    <section class="planner">
+      <h2>My Study Planner</h2>
 
-    <section id="add-task">
-      <h2>Add Study Task</h2>
+      <div class="input-area">
+        <input type="text" id="taskInput" placeholder="Enter study task">
+        <button id="addTaskBtn">Add Task</button>
+      </div>
 
-      <form id="task-form">
-        <div>
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" required>
-        </div>
-
-        <div>
-          <label for="date">Date</label>
-          <input type="date" id="date" required>
-        </div>
-
-        <div>
-          <label for="time">Time</label>
-          <input type="time" id="time" required>
-        </div>
-
-        <button type="submit">Add Task</button>
-      </form>
-    </section>
-
-    <section id="task-list-section">
-      <h2>Your Study Tasks</h2>
-      <ul id="task-list">
-
+      <ul id="taskList">
+ 
       </ul>
     </section>
-
   </main>
 
   <footer>
@@ -60,3 +41,5 @@
   <script src="js/script.js"></script>
 </body>
 </html>
+
+
