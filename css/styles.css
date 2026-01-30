@@ -92,9 +92,13 @@ main {
   padding: 0.5rem;
   margin-bottom: 0.5rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 0.5rem;
   border-radius: 4px;
+}
+
+#taskList li span {
+  flex: 1;
 }
 
 #taskList button {
@@ -110,6 +114,25 @@ main {
   background: #c0392b;
 }
 
+form div {
+  margin-bottom: 1rem;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
 footer {
   text-align: center;
   margin-top: 2rem;
@@ -118,18 +141,5 @@ footer {
   color: #fff;
 }
 
-#taskList li {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
 
-#taskList li span {
-  flex: 1;
-}
-
-#taskList li input[type="checkbox"]:checked + span {
-  text-decoration: line-through;
-  color: gray;
-}
 
