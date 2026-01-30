@@ -118,3 +118,18 @@ footer {
   color: #fff;
 }
 
+#taskList li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#taskList li span {
+  flex: 1;
+}
+
+#taskList li input[type="checkbox"]:checked + span {
+  text-decoration: line-through;
+  color: gray;
+}
+
