@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const taskInput = document.getElementById("taskInput");
   const addTaskBtn = document.getElementById("addTaskBtn");
   const taskList = document.getElementById("taskList");
+  const taskForm = document.getElementById("taskForm");
+
 
   let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
@@ -20,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
       checkbox.type = "checkbox";
       checkbox.checked = task.completed;
 
-      // Task text
       const span = document.createElement("span");
       span.textContent = task.text;
 
