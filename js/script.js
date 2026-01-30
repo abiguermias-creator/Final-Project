@@ -50,7 +50,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  addTaskBtn.addEventListener("click", function () {
+    taskForm.addEventListener("submit", function (e) {
+    e.preventDefault();
     const taskText = taskInput.value.trim();
     if (taskText === "") return;
 
