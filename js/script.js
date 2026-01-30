@@ -1,56 +1,47 @@
-const taskForm = document.getElementById("task-form");
-const subjectInput = document.getElementById("subject");
-const dateInput = document.getElementById("date");
-const timeInput = document.getElementById("time");
-const taskList = document.getElementById("task-list");
+document.addEventListener("DOMContentLoaded", function () {
 
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  const taskInput = document.getElementById("taskInput");
+  const addTaskBtn = document.getElementById("addTaskBtn");
+  const taskList = document.getElementById("taskList");
 
-tasks.forEach(task => {
-  addTaskToList(task.subject, task.date, task.time);
-});
+  let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-taskForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const subject = subjectInput.value;
-  const date = dateInput.value;
-  const time = timeInput.value;
-
-  if (subject === "" || date === "" || time === "") {
-    alert("Please fill in all fields");
-    return;
+  function saveTasks() {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
   }
 
-  const task = { subject, date, time };
-  tasks.push(task);
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+  function renderTasks() {
+    taskList.innerHTML = "";
 
-  addTaskToList(subject, date, time);
+    tasks.forEach((task, index) => {
+      const li = document.createElement("li");
+      li.textContent = task;
 
-  subjectInput.value = "";
-  dateInput.value = "";
-  timeInput.value = "";
-});
+      const deleteBtn = document.createElement("button");
+      deleteBtn.textContent = "Delete";
+      deleteBtn.addEventListener("click", function () {
+        tasks.splice(index, 1);
+        saveTasks();
+        renderTasks();
+      });
 
-function addTaskToList(subject, date, time) {
-  const li = document.createElement("li");
-  li.textContent = `${subject} - ${date} at ${time}`;
+      li.appendChild(deleteBtn);
+      taskList.appendChild(li);
+    });
+  }
 
-  const deleteBtn = document.createElement("button");
-  deleteBtn.textContent = "Delete";
-  deleteBtn.style.marginLeft = "10px";
+  addTaskBtn.addEventListener("click", function () {
+    const taskText = taskInput.value.trim();
 
-  deleteBtn.addEventListener("click", function () {
-    taskList.removeChild(li);
+    if (taskText === "") return;
 
-    tasks = tasks.filter(
-      task => !(task.subject === subject && task.date === date && task.time === time)
-    );
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    tasks.push(taskText);
+    saveTasks();
+    renderTasks();
+
+    taskInput.value = "";
   });
 
-  li.appendChild(deleteBtn);
-  taskList.appendChild(li);
-}
+  renderTasks();
+});
 
