@@ -42,6 +42,10 @@ Final-Project/
 └── README.md
 
 
+## Live Demo
+The project will be demonstrated live during the course presentation.  
+https://abiguermias-creator.github.io/Final-Project/
+
 
 ##  How to Run the Project
 1. Clone or download the repository
@@ -51,6 +55,6 @@ Final-Project/
 
 
 ##  Author
-- Name: Abigiya Yilma  
+- Name: Abigiya Ermias 
 - Course: Web Development  
 - Project Type: Final Project
