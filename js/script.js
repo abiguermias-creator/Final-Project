@@ -15,7 +15,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     tasks.forEach((task, index) => {
       const li = document.createElement("li");
-      li.textContent = task;
+
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.checked = task.completed;
+
+      // Task text
+      const span = document.createElement("span");
+      span.textContent = task.text;
+
+      if (task.completed) {
+        span.style.textDecoration = "line-through";
+        span.style.color = "gray";
+      }
+
+      checkbox.addEventListener("change", function () {
+        task.completed = checkbox.checked;
+        saveTasks();
+        renderTasks();
+      });
 
       const deleteBtn = document.createElement("button");
       deleteBtn.textContent = "Delete";
@@ -25,6 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
         renderTasks();
       });
 
+      li.appendChild(checkbox);
+      li.appendChild(span);
       li.appendChild(deleteBtn);
       taskList.appendChild(li);
     });
@@ -32,16 +52,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   addTaskBtn.addEventListener("click", function () {
     const taskText = taskInput.value.trim();
-
     if (taskText === "") return;
 
-    tasks.push(taskText);
+    tasks.push({
+      text: taskText,
+      completed: false
+    });
+
     saveTasks();
     renderTasks();
-
     taskInput.value = "";
   });
 
   renderTasks();
 });
+
 
