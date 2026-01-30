@@ -31,16 +31,22 @@ nav h1 {
 nav ul {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 20px;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+
 }
 
 nav a {
   color: #fff;
   text-decoration: none;
+  font-weight: bold;
 }
 
 nav a:hover {
   text-decoration: underline;
+  color: #007acc;
 }
 
 main {
@@ -131,6 +137,40 @@ form textarea:focus {
   outline: none;
   border-color: #3498db;
   box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+
+button {
+  padding: 8px 14px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007acc;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #005f99;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+  #taskInput,
+  #addTaskBtn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+
+
+  #taskInput, #addTaskBtn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
 
 footer {
@@ -140,6 +180,20 @@ footer {
   background: #2c3e50;
   color: #fff;
 }
+@media (max-width: 600px) {
+  .input-area {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .input-area input,
+  .input-area button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+
 
 
 
