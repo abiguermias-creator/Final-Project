@@ -54,6 +54,12 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
     const taskText = taskInput.value.trim();
     if (taskText === "") return;
+    
+     const isDuplicate = tasks.some(task => task.text.toLowerCase() === taskText.toLowerCase());
+  if (isDuplicate) {
+    alert("This task already exists!");
+    return;
+  }
 
     tasks.push({
       text: taskText,
