@@ -132,12 +132,17 @@ main {
 }
 
 footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   text-align: center;
-  margin-top: 2rem;
   padding: 1rem;
   background: #2c3e50;
   color: #fff;
+  z-index: 1000;
 }
+
 
 
 .contact {
